@@ -28,6 +28,19 @@ module.exports = {
       }
     })
   },
+  saveProjectEstimate: function(req, res) {
+    Estimate.create({
+      project_id: req.body.project_id,
+      desc: req.body.desc,
+      hours_allocated: req.body.hours_allocated
+    }).exec(function(err, estimate){
+      if(!err) {
+        return res.json(200, []);
+      } else {
+        console.log(err);
+      }
+    })
+  },
   resetGetProjectById: function(req, res) {
     const pId = req.body.id;
     Project.find({

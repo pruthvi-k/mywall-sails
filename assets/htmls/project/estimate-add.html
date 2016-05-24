@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-sm-6 col-sm-push-2">
+    <div class="box box-primary">
+      <div class="box-header with-border">
+        <h3 class="box-title">Add Estimate : <b>{{singleProject.name}}</b></h3>
+      </div>
+
+      <div class="box-body">
+        <form name="projectEstimateForm" ng-submit="saveProjectEstimate()">
+          <input type='hidden' name='_csrf' value='<%= _csrf %>' ng-model="projectEstimate._csrf">
+          <input type="hidden" name="project_id" ng-model="projectEstimate.project_id" />
+          <div class="form-group">
+            <label for="estimate_description">Description</label>
+            <input type="text" name="name"
+            id="estimate_description" placeholder="Enter the description"
+            class="form-control" ng-model="projectEstimate.desc" required/>
+          </div>
+
+          <div class="form-group">
+            <label for="hours_allocated">Allocated hours</label>
+            <input type="number" name="name"
+                   id="hours_allocated" placeholder="Enter estimate hours"
+                   class="form-control" ng-model="projectEstimate.hours_allocated" required/>
+
+        </div>
+
+        <button class="btn btn-success">
+          <i class="fa fa-upload"></i> Save
+        </button>
+
+      </form>
+    </div>
+  </div>
+</div>
+</div>

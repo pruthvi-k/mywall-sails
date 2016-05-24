@@ -73,6 +73,7 @@ module.exports.routes = {
   'get /api/get-all-tags': 'rest/RestTagController.getAllTags',
   'post /api/save-new-tag': 'rest/RestTagController.saveNewTag',
   'get /api/get-all-time-entries': 'rest/RestTimeEntriesController.getAllTimeEntries',
-  'post /api/save-new-time-entry': 'rest/RestTimeEntriesController.saveNewTimeEntry'
+  'post /api/save-new-time-entry': 'rest/RestTimeEntriesController.saveNewTimeEntry',
+  'post /api/save-project-estimate': 'rest/RestProjectController.saveProjectEstimate',
 
 };

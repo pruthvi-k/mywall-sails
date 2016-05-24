@@ -13,10 +13,10 @@ module.exports = {
       primaryKey: true,
       unique: true
     },
-    project_id: {
-      type: 'integer',
-      required: true
-    },
+    //project_id: {
+    //  type: 'integer',
+    //  required: true
+    //},
     desc: {
       type: 'text',
       required: true
@@ -30,7 +30,7 @@ module.exports = {
     status: {
       type: 'boolean'
     },
-    project: {
+    project_id: {
       model: 'project'
     }
   }

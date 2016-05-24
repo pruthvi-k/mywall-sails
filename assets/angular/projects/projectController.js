@@ -1,5 +1,5 @@
-app.controller('ProjectController', ['$scope', 'data', 'ProjectFactory', '$location', '$log',
-  function($scope, data, ProjectFactory, $location, $log) {
+app.controller('ProjectController', ['$scope', 'data', 'ProjectFactory', '$location', '$log', '$routeParams',
+  function($scope, data, ProjectFactory, $location, $log, $routeParams) {
     /**
      * Getting the list of projects through resolve.
      */
@@ -36,7 +36,8 @@ app.controller('ProjectController', ['$scope', 'data', 'ProjectFactory', '$locat
       newProject: {},
       singleProject: {},
       projects: [],
-      clients: []
+      clients: [],
+      projectEstimate: {}
     });
 
     angular.extend($scope, {
@@ -44,6 +45,21 @@ app.controller('ProjectController', ['$scope', 'data', 'ProjectFactory', '$locat
         ProjectFactory.saveProject($scope.newProject).success(function(response) {
           $scope.newProject = {};
           $location.path('/');
+        }).error(function(message, code, data) {
+          alert(message);
+        });
+      },
+      saveProjectEstimate: function() {
+
+        $scope.projectEstimate = {
+          project_id:$routeParams.id,
+          desc: $scope.projectEstimate.desc,
+          hours_allocated: $scope.projectEstimate.hours_allocated
+        };
+
+        ProjectFactory.saveProjectEstimate($scope.projectEstimate).success(function(response) {
+          $scope.projectEstimate = {};
+          $location.path('/project/'+$routeParams.id+'/estimate');
         }).error(function(message, code, data) {
           alert(message);
         });

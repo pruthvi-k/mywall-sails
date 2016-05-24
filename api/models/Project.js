@@ -27,7 +27,7 @@ module.exports = {
     },
     estimates: {
       collection: 'estimate',
-      via: 'id'
+      via: 'project_id'
     }
   }
 };

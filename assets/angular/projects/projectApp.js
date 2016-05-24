@@ -36,6 +36,18 @@ app.config(['$routeProvider', '$locationProvider',
       }
     });
 
+    $routeProvider.when('/project/:id/estimate/add', {
+      templateUrl: 'htmls/project/estimate-add.html',
+      controller: 'ProjectController',
+      resolve: {
+        data: function(ProjectFactory, $route) {
+          return {
+            project: ProjectFactory.getProjectById($route.current.params.id)
+          }
+        }
+      }
+    });
+
     $routeProvider.otherwise('/project');
 
   }

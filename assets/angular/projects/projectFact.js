@@ -19,6 +19,17 @@ app.factory('ProjectFactory', ['$rootScope', '$http',
       });
     };
 
+    projectFact.saveProjectEstimate = function(projectEstimateObj) {
+      return $http({
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        url: '/api/save-project-estimate',
+        method: "POST",
+        data: projectEstimateObj
+      });
+    };
+
     projectFact.getProjectById = function(pId) {
       // $http.defaults.headers.post['X-CSRF-Token'] = document.getElementsByName('_csrf')[0].value;
       return $http({
